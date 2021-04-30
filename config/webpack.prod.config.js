@@ -5,6 +5,6 @@ const { merge } = require('webpack-merge');
  * @type {import('webpack').Configuration}
  */
 const config = {
-    mode:'development',
+    mode: 'production',
 };
 module.exports = merge(common, config);
