@@ -52,7 +52,7 @@ const config = {
                 },
                 vendors: {
                     priority: -10,
-                    test: /node_modules/,
+                    test: /[\\/]node_modules[\\/]/,
                     name: 'vendor',
                     enforce: true,
                 }
