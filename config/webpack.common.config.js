@@ -2,7 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { webpack } = require('webpack');
-const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 
 /**
  * webpack智能提示功能
@@ -22,6 +23,14 @@ const config = {
                 test: /\.(js|jsx)$/,
                 use: 'babel-loader',
                 exclude: /node_modules/,
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                ],
+                exclude: /node_modules/,
             }
         ]
     },
@@ -37,6 +46,10 @@ const config = {
         }),
         new CleanWebpackPlugin({
             dry: false,
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].[hash:8].css',
+            chunkFilename: 'css/[id].[hash:8].css'
         }),
     ],
 };
