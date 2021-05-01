@@ -28,7 +28,15 @@ const config = {
                 test: /\.css$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                mode:'local',
+                                localIdentName: '[name]__[local]-[hash:base64:5]'
+                            },
+                        }
+                    },
                     'postcss-loader',
                 ],
                 exclude: /node_modules/,
@@ -37,7 +45,15 @@ const config = {
                 test: /\.less$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                mode:'local',
+                                localIdentName: '[name]__[local]-[hash:base64:5]'
+                            },
+                        }
+                    },
                     'postcss-loader',
                     'less-loader',
                 ]

@@ -1,9 +1,9 @@
 import React from 'react';
-import './app.less';
+import style from './app.less';
 
 const App = () => {
     return (
-        <div className="myApp" style={{ width: 300, height: 300, background: 'gray' }}>
+        <div className={style.myApp} style={{ width: 300, height: 300, background: 'gray' }}>
             <span>
                 hello
             </span>
