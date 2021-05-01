@@ -11,10 +11,9 @@ const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
 const config = {
     entry: {
         app: './src/index.js',
-        framework: ['react', 'react-dom']
     },
     output: {
-        filename: '[name].[chunkhash:8].bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, '../dist')
     },
     module: {
@@ -40,28 +39,5 @@ const config = {
             dry: false,
         }),
     ],
-    optimization: {
-        splitChunks: {
-            chunks: 'all',
-            minSize: 30000,
-            maxSize: 0,
-            minChunks: 1,
-            cacheGroups: {
-                framework: {
-                    test: 'framework',
-                    name: 'framework',
-                    enforce: true,
-                },
-                vendors: {
-                    priority: -10,
-                    test: /[\\/]node_modules[\\/]/,
-                    name: 'vendor',
-                    enforce: true,
-                }
-            }
-        },
-        minimize: true,
-        minimizer: [new UglifyjsWebpackPlugin()],
-    }
 };
 module.exports = config;
