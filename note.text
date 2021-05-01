@@ -1,0 +1,3 @@
+1. 为提高缓存命中率，将公共包抽离，采用splitChunks
+2. 压缩js 使用UglifyjsWebpackPlugin，可以过滤哪些不被压缩，可以设置缓存，采用多进程打包，开启parallel，提高构建速度
+3. 压缩js 使用TerserWebpackPlugin 同2

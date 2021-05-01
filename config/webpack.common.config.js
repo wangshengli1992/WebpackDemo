@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { webpack } = require('webpack');
+const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
 
 /**
  * webpack智能提示功能
@@ -36,7 +38,7 @@ const config = {
         }),
         new CleanWebpackPlugin({
             dry: false,
-        })
+        }),
     ],
     optimization: {
         splitChunks: {
@@ -57,7 +59,9 @@ const config = {
                     enforce: true,
                 }
             }
-        }
+        },
+        minimize: true,
+        minimizer: [new UglifyjsWebpackPlugin()],
     }
 };
 module.exports = config;
