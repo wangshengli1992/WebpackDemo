@@ -1,6 +1,7 @@
 const common = require('./webpack.common.config');
 const { merge } = require('webpack-merge');
 const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('css-minimizer-webpack-plugin');
 
 /**
  * @type {import('webpack').Configuration}
@@ -31,7 +32,7 @@ const config = {
             }
         },
         minimize: true,
-        minimizer: [new UglifyjsWebpackPlugin()],
+        minimizer: [new UglifyjsWebpackPlugin(),new MiniCssExtractPlugin()],
     }
 };
 module.exports = merge(common, config);

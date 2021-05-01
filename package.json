@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "core-js": "^3.11.1",
+    "css-minimizer-webpack-plugin": "^2.0.0",
     "react": "16.8.0",
     "react-dom": "16.8.0",
     "uglifyjs-webpack-plugin": "^2.2.0"
