@@ -5,16 +5,16 @@ const useWindowResize = (): [number, number] => {
   const [height, setHeight] = useState(0);
 
   useEffect((): void => {
-    const docEle: HTMLElement = document.documentElement;
-    setWidth(docEle.clientWidth);
-    setHeight(docEle.clientHeight);
+    const documentEle: HTMLElement = document.documentElement;
+    setWidth(documentEle.clientWidth);
+    setHeight(documentEle.clientHeight);
   }, []);
 
   useEffect((): void => {
     const reiszeHandler = (e: UIEvent) => {
-      const docEle: HTMLElement = document.documentElement;
-      setWidth(docEle.clientWidth);
-      setHeight(docEle.clientHeight);
+      const documentEle: HTMLElement = document.documentElement;
+      setWidth(documentEle.clientWidth);
+      setHeight(documentEle.clientHeight);
     };
     document.addEventListener('resize', reiszeHandler);
     return (): void => {
@@ -22,4 +22,4 @@ const useWindowResize = (): [number, number] => {
     };
   }, []);
   return [width, height];
-}
+};
