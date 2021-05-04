@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { webpack } = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { options } = require('less');
 
 
 /**
@@ -30,12 +31,6 @@ const config = {
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
-                        options: {
-                            modules: {
-                                mode: 'local',
-                                localIdentName: '[name]__[local]-[hash:base64:5]'
-                            },
-                        }
                     },
                     'postcss-loader',
                 ],
@@ -59,10 +54,26 @@ const config = {
                 ]
             },
             {
-                test: /\.(jpg|png|svg)$/,
-                use: [
-                    'file-loader'
+                test: /\.(jpg|png|gif)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'images/',
+                        limit: 100000,
+                    }
+                }
                 ]
+            },
+            {
+                test: /\.(eot|ttf|svg|woff|woff2)$/,
+                use: {
+                  loader: 'file-loader',
+                  options: {
+                    name: '[name]_[hash].[ext]',
+                    outputPath: 'font/'
+                  }
+                }
             }
         ]
     },
@@ -80,8 +91,8 @@ const config = {
             dry: false,
         }),
         new MiniCssExtractPlugin({
-            filename: 'css/[name].[hash:8].css',
-            chunkFilename: 'css/[id].[hash:8].css'
+            filename: '[name].[hash:8].css',
+            chunkFilename: '[id].[hash:8].css'
         }),
     ],
 };

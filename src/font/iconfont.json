@@ -1,0 +1,23 @@
+{
+  "id": "2525949",
+  "name": "webpack",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "21303017",
+      "name": "总览修饰",
+      "font_class": "zonglanxiushi",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "21303018",
+      "name": "总览",
+      "font_class": "zonglan",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    }
+  ]
+}
