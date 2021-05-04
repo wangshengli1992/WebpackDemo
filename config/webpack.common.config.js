@@ -32,7 +32,7 @@ const config = {
                         loader: 'css-loader',
                         options: {
                             modules: {
-                                mode:'local',
+                                mode: 'local',
                                 localIdentName: '[name]__[local]-[hash:base64:5]'
                             },
                         }
@@ -49,13 +49,19 @@ const config = {
                         loader: 'css-loader',
                         options: {
                             modules: {
-                                mode:'local',
+                                mode: 'local',
                                 localIdentName: '[name]__[local]-[hash:base64:5]'
                             },
                         }
                     },
                     'postcss-loader',
                     'less-loader',
+                ]
+            },
+            {
+                test: /\.(jpg|png|svg)$/,
+                use: [
+                    'file-loader'
                 ]
             }
         ]

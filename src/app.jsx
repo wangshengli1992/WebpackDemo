@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './app.less';
+import ImgHeader from '../static/images/header.jpg';
 
 const App = () => {
     return (
@@ -8,6 +9,7 @@ const App = () => {
                 hello
             </span>
             <h1>霓虹</h1>
+            <img src={ImgHeader} alt="" />
         </div>
     );
 }
