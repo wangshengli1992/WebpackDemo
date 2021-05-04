@@ -18,6 +18,7 @@ const config = {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, '../dist')
     },
+    devtool: 'eval-cheap-source-map',
     module: {
         rules: [
             {
@@ -68,11 +69,11 @@ const config = {
             {
                 test: /\.(eot|ttf|svg|woff|woff2)$/,
                 use: {
-                  loader: 'file-loader',
-                  options: {
-                    name: '[name]_[hash].[ext]',
-                    outputPath: 'font/'
-                  }
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name]_[hash].[ext]',
+                        outputPath: 'font/'
+                    }
                 }
             }
         ]
